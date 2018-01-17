@@ -29,7 +29,11 @@ class DB
             echo $exc->getMessage();
         }
     }
-    
+    /*
+     * function getInstance
+     * sets up database connection
+     * @return string
+     */
     public static function getInstance()
     {
         if(!isset(self::$_instance)):
@@ -39,6 +43,11 @@ class DB
         return self::$_instance;
     }
     
+    /*
+     * function query
+     * performs database query operations
+     * @return object
+     */
     public function query($sql , $params = [])
     {
         $this->_error = false;
@@ -78,7 +87,11 @@ class DB
         $limit = '';
         
     }
-
+    /*
+     * function insert
+     * performs record insertion
+     * @return true on success,<b>FALSE</b> on failure
+     */
         public function insert($table , $fields = [])
     {
         $fieldString = '';
@@ -102,7 +115,11 @@ class DB
         
         return false;
     }
-    
+    /*
+     * bool function update
+     * updates database records
+     * @returns true on success
+     */
     public function update($table, $id ,$fields = [])
     {
         $fieldString = '';
@@ -124,7 +141,12 @@ class DB
         
         return false;
     }
-
+    /*
+     * function delete
+     * deletes database row
+     * @param $table,$id
+     * @returns true on success
+     */
     public function delete($table,$id)
     {
         $sql = "DELETE FROM {$table} WHERE id={$id} LIMIT 1";
