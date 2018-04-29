@@ -18,7 +18,7 @@ class Home extends Controller
       
       
       $cols = $db->get_columns("contacts");
-      dnd($cols);
+      
       
       $this->view->render('home/index');
   }

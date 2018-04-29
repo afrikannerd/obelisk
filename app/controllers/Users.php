@@ -29,4 +29,8 @@ class Users extends Controller
     {
         $this->view->render("users/login");
     }
+    public function registerAction()
+    {
+        $this->view->render("users/register");
+    }
 }
